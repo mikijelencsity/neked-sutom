@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rólunk – Neked Sütöm – Baja lángosozó</title>
+  <meta name="description" content="Ismerj meg minket! A Neked Sütöm egy olyan hely, ahol a friss lángos illata és a jó hangulat alap. Baja szíve, Dr. Alföldi József tér 1." />
+  <link rel="icon" href="assets/images/logo.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════════ -->
+<nav class="nav scrolled" role="navigation" aria-label="Fő navigáció">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Neked Sütöm főoldal">
+      <img src="assets/images/logo.png"
+           alt="Neked Sütöm logó" class="nav__logo-img" />
+      <span class="nav__logo-text">Neked Sütöm</span>
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="index.html"      class="nav__link">Főoldal</a></li>
+      <li><a href="kinalatunk.html" class="nav__link">Kínálatunk</a></li>
+      <li><a href="szorpjeink.html" class="nav__link">Szörpjeink</a></li>
+      <li><a href="rolunk.html"     class="nav__link active">Rólunk</a></li>
+      <li><a href="kapcsolat.html"  class="nav__link">Kapcsolat</a></li>
+      <li><a href="index.html#rendeles" class="nav__link nav__cta">Rendelés ↗</a></li>
+    </ul>
+    <button class="nav__hamburger" aria-label="Menü megnyitása">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav__mobile" role="dialog" aria-label="Mobil navigáció">
+  <a href="index.html"      class="nav__mobile-link">Főoldal</a>
+  <a href="kinalatunk.html" class="nav__mobile-link">Kínálatunk</a>
+  <a href="szorpjeink.html" class="nav__mobile-link">Szörpjeink</a>
+  <a href="rolunk.html"     class="nav__mobile-link">Rólunk</a>
+  <a href="kapcsolat.html"  class="nav__mobile-link">Kapcsolat</a>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE HERO
+═══════════════════════════════════════════════ -->
+<header class="page-hero" aria-label="Rólunk oldal hero">
+  <div class="page-hero__bg">
+    <!-- Replace with actual about/team photo: assets/images/neked-sutom-etterem-baja-e1764173854274-1.jpeg -->
+    <img src="assets/images/41498-471993797_17865384315295241_6454546286958109921_n-1.jpg"
+         alt="Neked Sütöm étterem belső tér" loading="eager" />
+  </div>
+  <div class="page-hero__overlay"></div>
+  <div class="page-hero__content">
+    <span class="page-hero__label">A mi történetünk</span>
+    <h1 class="page-hero__title">Rólunk...</h1>
+  </div>
+</header>
+
+
+<!-- ══════════════════════════════════════════════
+     ABOUT MAIN
+═══════════════════════════════════════════════ -->
+<section class="section section--lg" aria-label="Rólunk fő szekció">
+  <div class="container">
+    <div class="about-intro">
+
+      <!-- Image side -->
+      <div class="about-img reveal">
+        <div class="about-img__main">
+          <!-- Replace with actual photo: assets/images/neked-sutom-feketeerdo-langos-1-1-819x1024.jpg -->
+          <img src="assets/images/Neked-Sutom-Bajai-Langosozo-1.jpg"
+               alt="Fekete Erdő Sonkás lángos – Neked Sütöm" loading="lazy" />
+        </div>
+        <div class="about-img__accent">
+          <img src="assets/images/41498-471993797_17865384315295241_6454546286958109921_n-1.jpg"
+               alt="Neked Sütöm étterem" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Text side -->
+      <div class="about-text reveal reveal-delay-2">
+        <span class="section-label">Baja szíve</span>
+        <h2>A Neked Sütöm</h2>
+        <div class="divider"></div>
+
+        <p>
+          A Neked Sütöm egy olyan hely, ahol a friss lángos illata és a jó hangulat alap.
+          Hiszünk benne, hogy egy igazán jó lángos nemcsak étel, hanem élmény:
+          ropogós szélek, puha belső, bőséges feltét és egy mosoly a pult mögül.
+        </p>
+
+        <p>
+          Baján, a Dr. Alföldi József téren találsz minket — egy kis hely, ahol nagy szeretettel
+          sütjük a lángosokat. Minden egyes adagnál ugyanolyan gondossággal és odafigyeléssel
+          dolgozunk, mintha számodra sütjük, mert valóban így van.
+        </p>
+
+        <p>
+          Kínálatunk folyamatosan bővül: a klasszikus sima lángostól kezdve az elegáns
+          Fekete Erdő Sonkásig, a Láng-Dogtól a házi szörpökig és matcha italokig —
+          mindig van valami új a felfedezésre.
+        </p>
+
+        <div style="margin-top:2rem;">
+          <a href="kinalatunk.html" class="btn btn--primary">Kínálatunk megtekintése →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     ÉRTÉKEINK
+═══════════════════════════════════════════════ -->
+<section class="section section--cream" aria-label="Értékeink">
+  <div class="container">
+    <div class="section__header--center reveal">
+      <span class="section-label">Amiben hiszünk</span>
+      <h2>Hiszünk abban, hogy...</h2>
+      <div class="divider divider--center"></div>
+    </div>
+
+    <div class="grid-3">
+      <div class="reveal reveal-delay-1" style="text-align:center;padding:2.5rem 2rem;background:white;border-radius:var(--radius);box-shadow:var(--shadow-sm);">
+        <div style="font-size:2.5rem;margin-bottom:1rem;" aria-hidden="true">🔥</div>
+        <h3 style="font-size:1.3rem;margin-bottom:0.75rem;">Frissesség</h3>
+        <p style="font-size:0.9rem;">Minden lángost frissen sütünk, naponta. Nincs előre elkészített tészta, nincs kompromisszum.</p>
+      </div>
+      <div class="reveal reveal-delay-2" style="text-align:center;padding:2.5rem 2rem;background:white;border-radius:var(--radius);box-shadow:var(--shadow-sm);">
+        <div style="font-size:2.5rem;margin-bottom:1rem;" aria-hidden="true">💚</div>
+        <h3 style="font-size:1.3rem;margin-bottom:0.75rem;">Minőség</h3>
+        <p style="font-size:0.9rem;">Minőségi alapanyagokkal, odafigyeléssel — mert egy egyszerű étel is lehet nagyszerű.</p>
+      </div>
+      <div class="reveal reveal-delay-3" style="text-align:center;padding:2.5rem 2rem;background:white;border-radius:var(--radius);box-shadow:var(--shadow-sm);">
+        <div style="font-size:2.5rem;margin-bottom:1rem;" aria-hidden="true">😊</div>
+        <h3 style="font-size:1.3rem;margin-bottom:0.75rem;">Élmény</h3>
+        <p style="font-size:0.9rem;">Egy igazán jó lángos nemcsak étel, hanem élmény. Ropogós szélek, puha belső, mosoly a pult mögül.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     IDÉZET
+═══════════════════════════════════════════════ -->
+<div class="quote-section" aria-label="Mottónk">
+  <div class="container">
+    <blockquote class="quote-text reveal">
+      „Szegény az az ember, akivel soha nem ült szemközt asszony,
+      hogy szerelemmel figyelje, amint eszik."
+    </blockquote>
+    <div style="margin-top:2.5rem;" class="reveal reveal-delay-1">
+      <img src="assets/images/logo.png"
+           alt="Neked Sütöm logó" style="height:52px;margin:0 auto;opacity:0.4;" loading="lazy" />
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     STAT STRIP
+═══════════════════════════════════════════════ -->
+<section class="section" aria-label="Számokban">
+  <div class="container">
+    <div class="stat-strip reveal">
+      <div class="stat-item">
+        <div class="stat-item__num">100%</div>
+        <div class="stat-item__label">Friss alapanyag</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__num">6</div>
+        <div class="stat-item__label">Nap a héten</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-item__num">★★★★★</div>
+        <div class="stat-item__label">Vendégértékelés</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     VENDÉGVÉLEMÉNYEK
+═══════════════════════════════════════════════ -->
+<section class="section section--cream" aria-label="Vendégvélemények">
+  <div class="container">
+    <div class="section__header--center reveal">
+      <span class="section-label">Amint mondják</span>
+      <h2>Vélemények</h2>
+      <div class="divider divider--center"></div>
+    </div>
+
+    <div class="reviews-grid">
+      <div class="review-card reveal reveal-delay-1">
+        <div class="review-card__stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p class="review-card__text">
+          „Ők az ékes példája annak, hogy minőségi alapanyagokkal, odafigyeléssel
+          egy egyszerű étel is lehet nagyszerű."
+        </p>
+        <span class="review-card__author">Gergő Kádas-Tar</span>
+      </div>
+
+      <div class="review-card reveal reveal-delay-2">
+        <div class="review-card__stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p class="review-card__text">
+          „Nagyon színvonalas hely! Életem lángosát fogyasztottam itt,
+          nem tudtam, hogy »egy lángos« képviselhet ilyen értéket!"
+        </p>
+        <span class="review-card__author">Szabolcs Kókai</span>
+      </div>
+
+      <div class="review-card reveal reveal-delay-3">
+        <div class="review-card__stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <p class="review-card__text">
+          „Ha az ember nem ájult el a legcukibb kiszolgálástól, akkor a kajától tuti el fog.
+          Isteni volt, köszönjük, jövünk még! 😋"
+        </p>
+        <span class="review-card__author">Viktória Gelencsér</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     CTA
+═══════════════════════════════════════════════ -->
+<div class="order-strip">
+  <div class="container">
+    <span class="section-label" style="color:var(--gold-light);display:block;text-align:center;margin-bottom:0.5rem;">Gyere el hozzánk!</span>
+    <h2>Látogass meg minket</h2>
+    <p>Baja, Dr. Alföldi József tér 1 — vagy rendeld meg Wolton és Foodorán.</p>
+    <div class="delivery-wrap reveal" style="margin-top:2rem;">
+      <a href="kapcsolat.html" class="btn btn--outline-white">Elérhetőség →</a>
+      <a href="https://wolt.com/hu/hun/baja/restaurant/neked-sutom?srsltid=AfmBOooofSF4jPXiXXF6goq9MMTRCKu0kcvcJ-XZW09k8vJ6fAfBWiHD" target="_blank" class="delivery-btn delivery-btn--wolt">
+        <span class="delivery-btn__logo">W</span> Wolt
+      </a>
+      <a href="https://www.foodora.hu/restaurant/pzv1/neked-sutom" target="_blank" class="delivery-btn delivery-btn--foodora">
+        <span class="delivery-btn__logo">F</span> Foodora
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <img src="assets/images/logo.png" alt="Neked Sütöm logó" loading="lazy" />
+          <span class="footer__logo-name">Neked Sütöm</span>
+        </div>
+        <p class="footer__tagline">Baja legjobb lángosozója. Frissen sütve, szerelemmel tálalva — minden nap.</p>
+        <div class="btn-group" style="gap:0.75rem;">
+          <a href="https://wolt.com/hu/hun/baja/restaurant/neked-sutom?srsltid=AfmBOooofSF4jPXiXXF6goq9MMTRCKu0kcvcJ-XZW09k8vJ6fAfBWiHD" target="_blank" class="delivery-btn delivery-btn--wolt" style="padding:0.5rem 1.25rem;font-size:0.8rem;">Wolt</a>
+          <a href="https://www.foodora.hu/restaurant/pzv1/neked-sutom" target="_blank" class="delivery-btn delivery-btn--foodora" style="padding:0.5rem 1.25rem;font-size:0.8rem;">Foodora</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__col-title">Navigáció</p>
+        <nav class="footer__nav">
+          <a href="index.html">Főoldal</a>
+          <a href="kinalatunk.html">Kínálatunk</a>
+          <a href="szorpjeink.html">Szörpjeink</a>
+          <a href="rolunk.html">Rólunk</a>
+          <a href="kapcsolat.html">Kapcsolat</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-title">Kapcsolat</p>
+        <div class="footer__contact-item"><span>📍</span><span>Baja, Dr. Alföldi József tér 1</span></div>
+        <div class="footer__contact-item"><span>📞</span><a href="tel:+36202636179" style="color:inherit;">06 20 263 6179</a></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy"><span class="footer__green-dot"></span>Minden jog fenntartva © 2026 Neked Sütöm</p>
+      <p class="footer__copy">Baja lángosozója — Frissen, minden nap.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

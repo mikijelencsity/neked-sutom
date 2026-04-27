@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kínálatunk – Neked Sütöm – Baja lángosozó</title>
+  <meta name="description" content="Neked Sütöm teljes étlapja: sima lángos, tejfölös, sajtos, Fekete Erdő Sonkás, Láng-Dog, desszertek és mini lángosok. Baja, Dr. Alföldi József tér 1." />
+  <link rel="icon" href="assets/images/logo.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════════ -->
+<nav class="nav scrolled" role="navigation" aria-label="Fő navigáció">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Neked Sütöm főoldal">
+      <img src="assets/images/logo.png"
+           alt="Neked Sütöm logó" class="nav__logo-img" />
+      <span class="nav__logo-text">Neked Sütöm</span>
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="index.html"      class="nav__link">Főoldal</a></li>
+      <li><a href="kinalatunk.html" class="nav__link active">Kínálatunk</a></li>
+      <li><a href="szorpjeink.html" class="nav__link">Szörpjeink</a></li>
+      <li><a href="rolunk.html"     class="nav__link">Rólunk</a></li>
+      <li><a href="kapcsolat.html"  class="nav__link">Kapcsolat</a></li>
+      <li><a href="index.html#rendeles" class="nav__link nav__cta">Rendelés ↗</a></li>
+    </ul>
+    <button class="nav__hamburger" aria-label="Menü megnyitása">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav__mobile" role="dialog" aria-label="Mobil navigáció">
+  <a href="index.html"      class="nav__mobile-link">Főoldal</a>
+  <a href="kinalatunk.html" class="nav__mobile-link">Kínálatunk</a>
+  <a href="szorpjeink.html" class="nav__mobile-link">Szörpjeink</a>
+  <a href="rolunk.html"     class="nav__mobile-link">Rólunk</a>
+  <a href="kapcsolat.html"  class="nav__mobile-link">Kapcsolat</a>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     PAGE HERO
+═══════════════════════════════════════════════ -->
+<header class="page-hero" aria-label="Kínálatunk oldal hero">
+  <div class="page-hero__bg">
+    <!-- Replace with actual image: assets/images/3a58e-sajtos-tejfolos-1-1.jpeg -->
+    <img src="assets/images/3a58e-sajtos-tejfolos-1-1.jpeg"
+         alt="Sajtos-tejfölös lángos" loading="eager" />
+  </div>
+  <div class="page-hero__overlay"></div>
+  <div class="page-hero__content">
+    <span class="page-hero__label">Frissen sütve minden nap</span>
+    <h1 class="page-hero__title">Kínálatunk</h1>
+  </div>
+</header>
+
+
+<!-- ══════════════════════════════════════════════
+     MENU INTRO
+═══════════════════════════════════════════════ -->
+<section class="section--sm" style="background:var(--bg-card);padding:3rem 0;">
+  <div class="container--narrow" style="text-align:center;">
+    <span class="section-label reveal">Kovászos-burgonyás tészta</span>
+    <h2 class="reveal" style="margin-bottom:1rem;">Neked Sütjük!</h2>
+    <div class="divider divider--center reveal"></div>
+    <p class="reveal" style="font-size:1.05rem;max-width:560px;margin:0 auto;">
+      Minden lángosunkat friss, kovászos-burgonyás tésztából sütjük, naponta.
+      Válassz az alaptól a különleges ízekig — mindenkinek van valami.
+    </p>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     LÁNGOSOK – Featured Items
+═══════════════════════════════════════════════ -->
+<section class="section" aria-label="Lángos kínálat">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section-label">Lángosaink</span>
+      <h2>Válaszd ki a kedvencedet</h2>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Sima lángos -->
+    <div class="featured-item reveal" style="margin-bottom:2rem;">
+      <div class="featured-item__img">
+        <!-- Replace with actual image: assets/images/a7f3e-sima-langos-1-1.jpeg -->
+        <img src="assets/images/a7f3e-sima-langos-1-1.jpeg"
+             alt="Sima lángos" loading="lazy" />
+      </div>
+      <div class="featured-item__body">
+        <span class="section-label">Alap</span>
+        <h2 class="featured-item__title">Sima lángos</h2>
+        <div class="divider"></div>
+        <p class="featured-item__desc">
+          Kovászos-burgonyás tésztával, az alap — letisztult ízek kedvelőinek.
+          A klasszikus, amit mindenki szeret.
+        </p>
+        <span class="featured-item__price">700 Ft-tól</span>
+        <div class="btn-group">
+          <a href="index.html#rendeles" class="btn btn--primary">Rendelés</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tejfölös lángos -->
+    <div class="featured-item reverse reveal" style="margin-bottom:2rem;">
+      <div class="featured-item__img">
+        <!-- Replace with actual image: assets/images/f6773-tejfoloslangos-1-scaled-1.jpg -->
+        <img src="assets/images/f6773-tejfoloslangos-1-scaled-1.jpg"
+             alt="Tejfölös lángos" loading="lazy" />
+      </div>
+      <div class="featured-item__body">
+        <span class="section-label">Klasszikus</span>
+        <h2 class="featured-item__title">Tejfölös lángos</h2>
+        <div class="divider"></div>
+        <p class="featured-item__desc">
+          Tejföllel, a klasszikus változat kedvelőinek.
+          A ropogós tészta és a krémes tejföl tökéletes kombinációja.
+        </p>
+        <span class="featured-item__price">1 200 Ft-tól</span>
+        <div class="btn-group">
+          <a href="index.html#rendeles" class="btn btn--primary">Rendelés</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sajtos-tejfölös -->
+    <div class="featured-item reveal" style="margin-bottom:2rem;">
+      <div class="featured-item__img">
+        <!-- Replace with actual image: assets/images/3a58e-sajtos-tejfolos-1-1.jpeg -->
+        <img src="assets/images/3a58e-sajtos-tejfolos-1-1.jpeg"
+             alt="Sajtos-tejfölös lángos" loading="lazy" />
+      </div>
+      <div class="featured-item__body">
+        <span class="section-label">Kettős feltét</span>
+        <h2 class="featured-item__title">Sajtos-tejfölös lángos</h2>
+        <div class="divider"></div>
+        <p class="featured-item__desc">
+          Kettős feltéttel — igazi klasszikus kombináció. A tejföl és a sajt
+          együtt adja azt a tökéletes ízt, amire mindenki visszajár.
+        </p>
+        <span class="featured-item__price">1 500 Ft-tól</span>
+        <div class="btn-group">
+          <a href="index.html#rendeles" class="btn btn--primary">Rendelés</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kómás Kedvence -->
+    <div class="featured-item reverse reveal" style="margin-bottom:2rem;">
+      <div class="featured-item__img">
+        <!-- Replace with actual image: assets/images/f0c13-grillkolbasz-1-scaled-1.jpg -->
+        <img src="assets/images/f0c13-grillkolbasz-1-scaled-1.jpg"
+             alt="Kómás Kedvence lángos" loading="lazy" />
+      </div>
+      <div class="featured-item__body">
+        <span class="section-label">Tartalmas</span>
+        <h2 class="featured-item__title">Kómás Kedvence</h2>
+        <div class="divider"></div>
+        <p class="featured-item__desc">
+          Ha valami szaftosabb, tartalmasabb falatra vágysz — ez a lángos
+          neked való. Bőséges feltétekkel, hogy igazán jóllakj.
+        </p>
+        <span class="featured-item__price">2 490 Ft-tól</span>
+        <div class="btn-group">
+          <a href="index.html#rendeles" class="btn btn--primary">Rendelés</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fekete Erdő Sonkás -->
+    <div class="featured-item reveal" style="margin-bottom:2rem;">
+      <div class="featured-item__img">
+        <!-- Replace with actual image: assets/images/neked-sutom-feketeerdo-langos-1-1.jpg -->
+        <img src="assets/images/neked-sutom-feketeerdo-langos-1-1.jpg"
+             alt="Fekete Erdő Sonkás lángos" loading="lazy" />
+      </div>
+      <div class="featured-item__body">
+        <span class="section-label">Különleges</span>
+        <h2 class="featured-item__title">Fekete Erdő Sonkás</h2>
+        <div class="divider"></div>
+        <p class="featured-item__desc">
+          Mozzarella sajttal és karamellizált körtével — egy kicsit elegánsabb,
+          különlegesebb ízvilág. Ha valami igazán különlegeset szeretnél.
+        </p>
+        <span class="featured-item__price">2 490 Ft-tól</span>
+        <div class="btn-group">
+          <a href="index.html#rendeles" class="btn btn--primary">Rendelés</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Láng-Dog -->
+    <div class="featured-item reverse reveal">
+      <div class="featured-item__img">
+        <!-- Replace with actual image: assets/images/Lang-dog-1.jpg -->
+        <img src="assets/images/Lang-dog-1.jpg"
+             alt="Láng-Dog" loading="lazy" />
+      </div>
+      <div class="featured-item__body">
+        <span class="section-label">Street food kedvenc</span>
+        <h2 class="featured-item__title">Láng-Dog</h2>
+        <div class="divider"></div>
+        <p class="featured-item__desc">
+          A tökéletes street food élmény: bécsi virsli, ropogós bacon, pirított hagyma,
+          olvadt sajt — ketchuppal vagy mustárral, savanyú uborkával.
+        </p>
+        <div class="tags-wrap" style="margin-bottom:1.25rem;">
+          <span class="tag">Bécsi virsli</span>
+          <span class="tag">Bacon</span>
+          <span class="tag">Pirított hagyma</span>
+          <span class="tag">Sajt</span>
+          <span class="tag">Ketchup / mustár</span>
+          <span class="tag">Savanyú uborka</span>
+        </div>
+        <span class="featured-item__price">2 490 Ft-tól</span>
+        <div class="btn-group">
+          <a href="index.html#rendeles" class="btn btn--primary">Rendelés</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     DESSZERTEK
+═══════════════════════════════════════════════ -->
+<section class="section section--cream" aria-label="Desszertek">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section-label">Édes befejezés</span>
+      <h2>Desszertek</h2>
+      <div class="divider"></div>
+      <p>Mert a lángos után is jár valami finomság!</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="food-card reveal reveal-delay-1">
+        <div class="food-card__img-wrap">
+          <img src="assets/images/nutellas-langos.jpg"
+               alt="Nutellás Lángos" loading="lazy" />
+        </div>
+        <div class="food-card__body">
+          <h3 class="food-card__title">Nutellás mascarponés</h3>
+          <p class="food-card__desc">
+            Nutellás mascarpone krém, sós mogyoróval koronázva.
+            Az édesség és a só tökéletes harmóniája.
+          </p>
+          <div class="food-card__footer">
+            <span class="food-card__price">1 500 Ft-tól</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="food-card reveal reveal-delay-2">
+        <div class="food-card__img-wrap">
+          <!-- Replace with actual image: assets/images/Fankos-langos-1.jpg -->
+          <img src="assets/images/Fankos-langos-1.jpg"
+               alt="Fánkos lángos pisztáciás eperraguval" loading="lazy" />
+        </div>
+        <div class="food-card__body">
+          <h3 class="food-card__title">Fánkos lángos</h3>
+          <p class="food-card__desc">
+            Pisztáciás eperraguval — egy igazi különlegesség,
+            ahol a ropogós lángos találkozik a friss gyümölccsel.
+          </p>
+          <div class="food-card__footer">
+            <span class="food-card__price">1 500 Ft-tól</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     MINI LÁNGOSOK
+═══════════════════════════════════════════════ -->
+<section class="section" aria-label="Mini lángosok">
+  <div class="container">
+    <div class="section__header--center reveal">
+      <span class="section-label">Kisebbeknek is</span>
+      <h2>Mini lángosok</h2>
+      <div class="divider divider--center"></div>
+      <p>Kisebb adagok a nagy lángosrajongók kis verziójában — tökéletesek gyerekeknek vagy könnyebb harapnivalónak.</p>
+    </div>
+
+    <div style="max-width:520px;margin:0 auto;">
+      <div class="mini-menu reveal">
+        <p class="mini-menu__title">Mini lángosok árai</p>
+        <div class="mini-menu__row">
+          <span class="mini-menu__item-name">Sima mini</span>
+          <span class="mini-menu__item-price">550 Ft-tól</span>
+        </div>
+        <div class="mini-menu__row">
+          <span class="mini-menu__item-name">Tejfölös</span>
+          <span class="mini-menu__item-price">1 000 Ft-tól</span>
+        </div>
+        <div class="mini-menu__row">
+          <span class="mini-menu__item-name">Sajtos-tejfölös</span>
+          <span class="mini-menu__item-price">1 150 Ft-tól</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     CTA – Rendelj
+═══════════════════════════════════════════════ -->
+<div class="order-strip">
+  <div class="container">
+    <span class="section-label" style="color:var(--gold-light);display:block;text-align:center;margin-bottom:0.5rem;">Hozd haza</span>
+    <h2>Rendeld meg kedvenceidet</h2>
+    <p>Gyors kiszolgálás, friss lángos — helyben vagy elvitelre.</p>
+    <div class="delivery-wrap reveal">
+      <a href="https://wolt.com/hu/hun/baja/restaurant/neked-sutom?srsltid=AfmBOooofSF4jPXiXXF6goq9MMTRCKu0kcvcJ-XZW09k8vJ6fAfBWiHD" target="_blank" class="delivery-btn delivery-btn--wolt">
+        <span class="delivery-btn__logo">W</span> Wolt rendelés
+      </a>
+      <a href="https://www.foodora.hu/restaurant/pzv1/neked-sutom" target="_blank" class="delivery-btn delivery-btn--foodora">
+        <span class="delivery-btn__logo">F</span> Foodora rendelés
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <img src="assets/images/logo.png" alt="Neked Sütöm logó" loading="lazy" />
+          <span class="footer__logo-name">Neked Sütöm</span>
+        </div>
+        <p class="footer__tagline">Baja legjobb lángosozója. Frissen sütve, szerelemmel tálalva — minden nap.</p>
+        <div class="btn-group" style="gap:0.75rem;">
+          <a href="https://wolt.com/hu/hun/baja/restaurant/neked-sutom?srsltid=AfmBOooofSF4jPXiXXF6goq9MMTRCKu0kcvcJ-XZW09k8vJ6fAfBWiHD" target="_blank" class="delivery-btn delivery-btn--wolt" style="padding:0.5rem 1.25rem;font-size:0.8rem;">Wolt</a>
+          <a href="https://www.foodora.hu/restaurant/pzv1/neked-sutom" target="_blank" class="delivery-btn delivery-btn--foodora" style="padding:0.5rem 1.25rem;font-size:0.8rem;">Foodora</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__col-title">Navigáció</p>
+        <nav class="footer__nav">
+          <a href="index.html">Főoldal</a>
+          <a href="kinalatunk.html">Kínálatunk</a>
+          <a href="szorpjeink.html">Szörpjeink</a>
+          <a href="rolunk.html">Rólunk</a>
+          <a href="kapcsolat.html">Kapcsolat</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-title">Kapcsolat</p>
+        <div class="footer__contact-item"><span>📍</span><span>Baja, Dr. Alföldi József tér 1</span></div>
+        <div class="footer__contact-item"><span>📞</span><a href="tel:+36202636179" style="color:inherit;">06 20 263 6179</a></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy"><span class="footer__green-dot"></span>Minden jog fenntartva © 2026 Neked Sütöm</p>
+      <p class="footer__copy">Baja lángosozója — Frissen, minden nap.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

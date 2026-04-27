@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Szörpjeink & Italaink – Neked Sütöm – Baja lángosozó</title>
+  <meta name="description" content="Neked Sütöm házi szörpjei, matcha italok, chai latte, limonádék és szezonális italok. Baja, Dr. Alföldi József tér 1." />
+  <link rel="icon" href="assets/images/logo.png" type="image/png" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <style>
+    /* Page-specific styles */
+    .drinks-hero-section {
+      background: var(--bg-dark);
+      padding: calc(var(--nav-h) + 5rem) 0 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .drinks-hero-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('assets/images/Neked-Sutom-Szorpok-1.jpg') center/cover no-repeat;
+      opacity: 0.15;
+    }
+
+    .drinks-hero-section .container { position: relative; z-index: 1; }
+
+    .drink-category {
+      margin-bottom: 3rem;
+    }
+
+    .drink-category__title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      color: var(--dark);
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--gold-pale);
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .drink-category__title-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--gold-pale);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .itallap-photo {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: sticky;
+      top: calc(var(--nav-h) + 1.5rem);
+    }
+
+    .itallap-photo img {
+      width: 100%;
+      display: block;
+    }
+
+    .drinks-layout {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    @media (max-width: 960px) {
+      .drinks-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .itallap-photo {
+        position: static;
+        max-width: 540px;
+        margin: 0 auto;
+      }
+    }
+
+    .ujdonsag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(165, 214, 167, 0.15);
+      border:1px solid rgba(200,168,78,0.3);
+      color:var(--gold-light);
+      padding: 0.4rem 1rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .drink-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: start;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .drink-item:last-child { border-bottom: none; }
+
+    .drink-item__name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .drink-item__desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .drink-item__new {
+      display: inline-block;
+      background: var(--gold);
+      color: white;
+      padding: 0.15rem 0.6rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      vertical-align: middle;
+      margin-left: 0.5rem;
+    }
+
+    .szorp-showcase {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .szorp-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .szorp-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .szorp-card__icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .szorp-card__name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .szorp-card__note {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 600px) {
+      .szorp-showcase { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════════ -->
+<nav class="nav scrolled" role="navigation" aria-label="Fő navigáció">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo" aria-label="Neked Sütöm főoldal">
+      <img src="assets/images/logo.png"
+           alt="Neked Sütöm logó" class="nav__logo-img" />
+      <span class="nav__logo-text">Neked Sütöm</span>
+    </a>
+    <ul class="nav__links" role="list">
+      <li><a href="index.html"      class="nav__link">Főoldal</a></li>
+      <li><a href="kinalatunk.html" class="nav__link">Kínálatunk</a></li>
+      <li><a href="szorpjeink.html" class="nav__link active">Szörpjeink</a></li>
+      <li><a href="rolunk.html"     class="nav__link">Rólunk</a></li>
+      <li><a href="kapcsolat.html"  class="nav__link">Kapcsolat</a></li>
+      <li><a href="index.html#rendeles" class="nav__link nav__cta">Rendelés ↗</a></li>
+    </ul>
+    <button class="nav__hamburger" aria-label="Menü megnyitása">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav__mobile" role="dialog" aria-label="Mobil navigáció">
+  <a href="index.html"      class="nav__mobile-link">Főoldal</a>
+  <a href="kinalatunk.html" class="nav__mobile-link">Kínálatunk</a>
+  <a href="szorpjeink.html" class="nav__mobile-link">Szörpjeink</a>
+  <a href="rolunk.html"     class="nav__mobile-link">Rólunk</a>
+  <a href="kapcsolat.html"  class="nav__mobile-link">Kapcsolat</a>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
+<div class="drinks-hero-section">
+  <div class="container" style="text-align:center;">
+    <div class="ujdonsag-pill reveal">
+      <span>✦</span>
+      <span>Újdonság: Epres Matcha Latte & Matcha Limonádé</span>
+    </div>
+    <h1 style="color:white;font-weight:300;margin-bottom:1rem;" class="reveal reveal-delay-1">
+      Neked Sütöm<br><em style="color:var(--gold-light);">Italaink</em>
+    </h1>
+    <p style="color:rgba(255,255,255,0.7);max-width:520px;margin:0 auto 2rem;font-size:1.05rem;" class="reveal reveal-delay-2">
+      Nem csak sütünk, hanem főzünk is nektek! Házi szörpök, prémium kávéitalok,
+      matchák és frissítők — minden ízlésmentes nap nélkül.
+    </p>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════
+     MAIN DRINKS CONTENT
+═══════════════════════════════════════════════ -->
+<section class="section" aria-label="Italaink teljes listája">
+  <div class="container">
+    <div class="drinks-layout">
+
+      <!-- LEFT: Menu items -->
+      <div>
+
+        <!-- Szezonális / Karácsonyi -->
+        <div class="drink-category reveal">
+          <h2 class="drink-category__title">
+            <span class="drink-category__title-icon" aria-hidden="true">🍂</span>
+            Szezonális italok
+          </h2>
+          <div class="drink-item">
+            <div>
+              <div class="drink-item__name">Sült tea</div>
+              <div class="drink-item__desc">Citromos, almás sült gyümölcsök gyömbérrel és téli fűszerekkel</div>
+            </div>
+          </div>
+          <div class="drink-item">
+            <div>
+              <div class="drink-item__name">Téli szörp</div>
+              <div class="drink-item__desc">Fűszeres-meleg íze felmelegíti a leghidegebb napokat is</div>
+            </div>
+          </div>
+          <div class="drink-item">
+            <div>
+              <div class="drink-item__name">Chai latte</div>
+              <div class="drink-item__desc">Fűszeres, aromás chai fekete tea meleg tejjel</div>
+            </div>
+          </div>
+          <div class="drink-item">
+            <div>
+              <div class="drink-item__name">Dirty chai latte</div>
+              <div class="drink-item__desc">Chai latte eszpresszóval megbolondítva</div>
+            </div>
+          </div>
+          <div class="drink-item">
+            <div>
+              <div class="drink-item__name">Pillecukros kakaó</div>
+              <div class="drink-item__desc">Meleg kakaó, karamellizált pillecukorral</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Matcha -->
+        <div class="drink-category reveal">
+          <h2 class="drink-category__title">
+            <span class="drink-category__title-icon" aria-hidden="true">🍵</span>
+            Matcha italok
+          </h2>
+          <div class="drink-item">
+            <div>
+              <div class="drink-item__name">
+                Epres matcha latte
+                <span class="drink-item__new">Új</span>
+              </div>
+              <div class="drink-item__desc">Prémium matcha por, tejjel és epres sziruppal</div>
+            </div>
+          </div>
+          <div class="drink-item">
+            <div>
+              <div class="drink-item__name">
+                Matcha limonádé
+                <span class="drink-item__new">Új</span>
+              </div>
+              <div class="drink-item__desc">Frissítő matcha limonádé, a nyár legjobb hűsítője</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Házi szörpök -->
+        <div class="drink-category reveal">
+          <h2 class="drink-category__title">
+            <span class="drink-category__title-icon" aria-hidden="true">🫙</span>
+            Házi szörpjeink
+          </h2>
+
+          <p style="padding:1rem 0;color:var(--text-muted);font-size:0.95rem;border-bottom:1px solid var(--border);">
+            Nem csak sütünk, hanem főzünk is nektek! Ha valamelyik általunk készített szörp megtetszik,
+            akkor akár üveggel is vásárolhattok nálunk!
+          </p>
+
+          <div class="drink-item">
+            <div>
+              <div class="drink-item__name">Szezonális szörp</div>
+              <div class="drink-item__desc">Az éppen aktuális szezon legjobb gyümölcseiből főzve</div>
+            </div>
+          </div>
+          <div class="drink-item">
+            <div>
+              <div class="drink-item__name">Házi limonádé</div>
+              <div class="drink-item__desc">Friss citrusfélékből, házi szörpökkel — frissítő és eredeti</div>
+            </div>
+          </div>
+          <div class="drink-item">
+            <div>
+              <div class="drink-item__name">Szörp üvegben</div>
+              <div class="drink-item__desc">Vidd haza a kedvencedet! Házi szörpjeink üvegben is kaphatók</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desszertek mention -->
+        <div class="reveal" style="background:var(--gold-pale);border-radius:var(--radius);padding:2rem;border:1px solid rgba(200,168,78,0.15);margin-top:2rem;">
+          <span class="section-label">Ne feledd</span>
+          <h3 style="color:var(--gold-dark);margin-bottom:0.5rem;">Desszertek & italok</h3>
+          <p style="color:var(--text);margin-bottom:1.25rem;">
+            Ha már jóllaktál egy ízletes lángossal, de még megédesítenéd a napodat,
+            nézz szét desszert- és italválasztékunk között! Kínálatunkban mindenki talál kedvére valót
+            — legyen szó egy könnyű, édes finomságról vagy egy frissítő italról a nagy melegben.
+          </p>
+          <a href="kinalatunk.html" class="btn btn--primary" style="font-size:0.82rem;">Desszertek megtekintése →</a>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Itallap photo (sticky) -->
+      <div>
+        <div class="itallap-photo reveal reveal-delay-2">
+          <!-- Replace with actual drink menu photo: assets/images/650248402_17918187438295241_307225301371423452_n.jpg -->
+          <img src="assets/images/650248402_17918187438295241_307225301371423452_n.jpg"
+               alt="Neked Sütöm ITALAINK – itallap fotó" loading="lazy" />
+        </div>
+        <p style="text-align:center;font-size:0.8rem;color:var(--text-muted);margin-top:0.75rem;">
+          Aktuális itallap
+        </p>
+
+        <!-- Szörp info box -->
+        <div style="background:var(--bg-dark);border-radius:var(--radius);padding:2rem;margin-top:2rem;" class="reveal reveal-delay-3">
+          <h3 style="color:white;font-size:1.2rem;margin-bottom:0.75rem;">Szörpöt vinnél haza?</h3>
+          <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;margin-bottom:1.25rem;">
+            Házi szörpjeink üvegben is kaphatók! Látogass el hozzánk személyesen.
+          </p>
+          <a href="kapcsolat.html" class="btn btn--outline-white" style="font-size:0.8rem;">Elérhetőség →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     HÁZI SZÖRPÖK VISUAL SHOWCASE
+═══════════════════════════════════════════════ -->
+<section class="section section--cream" aria-label="Szörp kínálat vizuális">
+  <div class="container">
+    <div class="section__header--center reveal">
+      <span class="section-label">Házilag főzve</span>
+      <h2>Szörpjeink</h2>
+      <div class="divider divider--center"></div>
+      <p>Desszertek és italok — mert a lángos után is jár valami finomság!</p>
+    </div>
+
+    <div style="margin-bottom:3rem;" class="reveal">
+      <img src="assets/images/Neked-Sutom-Szorpok-1.jpg"
+           alt="Neked Sütöm szörpök kollekciója" loading="lazy"
+           style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow-lg);max-height:520px;object-fit:cover;" />
+    </div>
+
+    <div class="szorp-showcase">
+      <div class="szorp-card reveal reveal-delay-1">
+        <span class="szorp-card__icon" aria-hidden="true">🍓</span>
+        <div class="szorp-card__name">Gyümölcsös</div>
+        <p class="szorp-card__note">Friss, szezonális gyümölcsökből</p>
+      </div>
+      <div class="szorp-card reveal reveal-delay-2">
+        <span class="szorp-card__icon" aria-hidden="true">🌿</span>
+        <div class="szorp-card__name">Gyógynövényes</div>
+        <p class="szorp-card__note">Természetes aromákkal</p>
+      </div>
+      <div class="szorp-card reveal reveal-delay-3">
+        <span class="szorp-card__icon" aria-hidden="true">🍋</span>
+        <div class="szorp-card__name">Limonádé alap</div>
+        <p class="szorp-card__note">Frissítő citrus alapú szörp</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:3rem;padding:2.5rem;background:white;border-radius:var(--radius);box-shadow:var(--shadow-sm);" class="reveal">
+      <span class="section-label">Válogass kedvedre</span>
+      <h3 style="margin-bottom:0.75rem;">Válassz különféle hűsítő üdítőitalok, friss gyümölcslevek és klasszikus frissítők közül</h3>
+      <p style="max-width:520px;margin:0 auto 1.5rem;">
+        ...vagy koronázd meg az étkezést egy finom desszerttel!
+      </p>
+      <a href="kinalatunk.html" class="btn btn--primary">Desszertek →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <img src="assets/images/logo.png" alt="Neked Sütöm logó" loading="lazy" />
+          <span class="footer__logo-name">Neked Sütöm</span>
+        </div>
+        <p class="footer__tagline">Baja legjobb lángosozója. Frissen sütve, szerelemmel tálalva — minden nap.</p>
+        <div class="btn-group" style="gap:0.75rem;">
+          <a href="https://wolt.com/hu/hun/baja/restaurant/neked-sutom?srsltid=AfmBOooofSF4jPXiXXF6goq9MMTRCKu0kcvcJ-XZW09k8vJ6fAfBWiHD" target="_blank" class="delivery-btn delivery-btn--wolt" style="padding:0.5rem 1.25rem;font-size:0.8rem;">Wolt</a>
+          <a href="https://www.foodora.hu/restaurant/pzv1/neked-sutom" target="_blank" class="delivery-btn delivery-btn--foodora" style="padding:0.5rem 1.25rem;font-size:0.8rem;">Foodora</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__col-title">Navigáció</p>
+        <nav class="footer__nav">
+          <a href="index.html">Főoldal</a>
+          <a href="kinalatunk.html">Kínálatunk</a>
+          <a href="szorpjeink.html">Szörpjeink</a>
+          <a href="rolunk.html">Rólunk</a>
+          <a href="kapcsolat.html">Kapcsolat</a>
+        </nav>
+      </div>
+      <div>
+        <p class="footer__col-title">Kapcsolat</p>
+        <div class="footer__contact-item"><span>📍</span><span>Baja, Dr. Alföldi József tér 1</span></div>
+        <div class="footer__contact-item"><span>📞</span><a href="tel:+36202636179" style="color:inherit;">06 20 263 6179</a></div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy"><span class="footer__green-dot"></span>Minden jog fenntartva © 2026 Neked Sütöm</p>
+      <p class="footer__copy">Baja lángosozója — Frissen, minden nap.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
