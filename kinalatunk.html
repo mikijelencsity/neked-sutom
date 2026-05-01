@@ -156,6 +156,49 @@
     @media (max-width: 600px) {
       .menu-grid { grid-template-columns: 1fr; }
     }
+
+    /* ── Galéria – masonry-szerű grid ─────────────── */
+    .szorp-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 200px;
+      grid-auto-flow: dense;
+      gap: 1rem;
+    }
+    .szorp-gallery__item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .szorp-gallery__item:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-lg);
+    }
+    .szorp-gallery__item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .szorp-gallery__item:hover img { transform: scale(1.06); }
+    .szorp-gallery__item--wide { grid-column: span 2; }
+    .szorp-gallery__item--tall { grid-row: span 2; }
+    @media (max-width: 880px) {
+      .szorp-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 160px;
+        grid-auto-flow: dense;
+      }
+      .szorp-gallery__item--wide { grid-column: span 2; }
+      .szorp-gallery__item--tall { grid-row: span 1; }
+    }
+    @media (max-width: 480px) {
+      .szorp-gallery { grid-template-columns: 1fr; }
+      .szorp-gallery__item--wide { grid-column: auto; }
+    }
   </style>
 </head>
 <body>
@@ -528,6 +571,99 @@
     </div>
   </div>
 </div>
+
+
+<!-- ══════════════════════════════════════════════
+     GALÉRIA
+═══════════════════════════════════════════════ -->
+<section class="section section--cream" aria-label="Galéria">
+  <div class="container">
+    <div class="section__header--center reveal">
+      <span class="section-label">Galéria</span>
+      <h2>Pillanatképek nálunk</h2>
+      <div class="divider divider--center"></div>
+      <p>Hangulat, ízek, vendégeink — egy kis betekintés a Neked Sütöm világába.</p>
+    </div>
+
+    <div class="szorp-gallery reveal">
+      <div class="szorp-gallery__item szorp-gallery__item--tall">
+        <img src="assets/images/Új%20mappa/att.b12lXP_oiGqf03wzAmsu4l79HLIMCWMzXQ5ANesHyDE.jpeg" alt="Neked Sütöm galéria" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item szorp-gallery__item--wide">
+        <img src="assets/images/Új%20mappa/att.5Xm7qnJ4RQ0BMxUM5kPD8kB38f_ZysE7dWC6wncf25M.jpeg" alt="Neked Sütöm hangulat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/Új%20mappa/att.5glTK0lFrwYoR-XX0mmLgTI6AcTYSYjbuVwak3B0ed4.jpeg" alt="Neked Sütöm pillanat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/Új%20mappa/att.B3DiaT6Jn696fRQ9ua7kaezwYthZ4ue7UQg1sNQ6m60.jpeg" alt="Neked Sütöm finomság" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item szorp-gallery__item--wide">
+        <img src="assets/images/Új%20mappa/att.LIJ1CbpOA9dRis7zpxAE8Dr49TVSuBxlSYDYkc9QAf0.jpeg" alt="Neked Sütöm fogás" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/Új%20mappa/att.QTJsQ6PiF_E2U0zAMFw6ls23PiVdKqBzyj0lAHFVMEU.jpeg" alt="Neked Sütöm pillanatkép" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item szorp-gallery__item--tall">
+        <img src="assets/images/Új%20mappa/att.f18uYmY54ymYS8AkT_rnBd6I70ElMx2x1qEqj9t4fRs.jpeg" alt="Neked Sütöm hangulat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/Új%20mappa/att.jSreLcmp1z-we8t2uhgn-HuMZ3AFvFVCJot5WqPxXD8.jpg" alt="Neked Sütöm pillanat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/Új%20mappa/att.w0Lq6NWT5Y5IW8IUG8MAr7sGiW1LhNaZh5rUPn0vtIE.jpeg" alt="Neked Sütöm finomság" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item szorp-gallery__item--wide">
+        <img src="assets/images/Új%20mappa/sajtos%20tejfolos.jpeg" alt="Sajtos tejfölös lángos" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/ételek/galéria4.jpg.jpeg" alt="Neked Sütöm galéria" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item szorp-gallery__item--tall">
+        <img src="assets/images/ételek/galéria5.jpg.jpeg" alt="Neked Sütöm pillanat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/ételek/galéria6.jpg.jpeg" alt="Neked Sütöm hangulat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item szorp-gallery__item--wide">
+        <img src="assets/images/ételek/galéria7.jpg.jpeg" alt="Neked Sütöm kínálat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/ételek/galéria8.jpg.jpeg" alt="Neked Sütöm fogás" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/elnevezettek/galéria.jpg.jpeg" alt="Neked Sütöm galéria" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item szorp-gallery__item--tall">
+        <img src="assets/images/elnevezettek/galéria2.jpg.jpeg" alt="Neked Sütöm hangulat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/elnevezettek/galéria3.jpg.jpeg" alt="Neked Sütöm pillanat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/elnevezettek/galéria-dij.jpg.jpeg" alt="Neked Sütöm díj" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item szorp-gallery__item--wide">
+        <img src="assets/images/ételek/Nutellás%20mascarponés2.jpg.jpeg" alt="Nutellás mascarponés" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/ételek/kovászos-burgonyás.jpg.jpeg" alt="Kovászos burgonyás" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/Új%20mappa/att.64aL4moCZrvhPzD2DfEcu4a785ujAF0sTPAS_GmCnJc%20másolata.jpeg" alt="Neked Sütöm fogás" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/Új%20mappa/att.El0PQl6lJeqSPwXfRLs9ebGnGgZTKIGhSzVB397JY4w%20másolata.jpeg" alt="Neked Sütöm pillanat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/Új%20mappa/att.Jrkf8hy6lvPLroGkH8_R3TWlK0UoMkCWrpjews0KJPo%20másolata.jpeg" alt="Neked Sütöm hangulat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item szorp-gallery__item--wide">
+        <img src="assets/images/nutellas-langos.jpg" alt="Nutellás lángos" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <!-- ══════════════════════════════════════════════

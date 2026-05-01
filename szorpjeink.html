@@ -144,47 +144,269 @@
       margin-left: 0.5rem;
     }
 
+    /* ── Szörp showcase – aszimmetrikus képes grid ─────────────── */
     .szorp-showcase {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 280px 280px;
       gap: 1.25rem;
     }
 
     .szorp-card {
-      background: white;
+      position: relative;
       border-radius: var(--radius);
-      padding: 1.75rem 1.5rem;
-      text-align: center;
+      overflow: hidden;
       box-shadow: var(--shadow-sm);
-      border: 1px solid var(--border);
       transition: transform var(--transition), box-shadow var(--transition);
+      cursor: pointer;
     }
 
     .szorp-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
     }
 
-    .szorp-card__icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      display: block;
+    /* aszimmetrikus elrendezés */
+    .szorp-card--feature { grid-column: span 2; grid-row: span 2; }
+    .szorp-card--tall    { grid-row: span 2; }
+
+    .szorp-card__img {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .szorp-card__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.9s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .szorp-card:hover .szorp-card__img img {
+      transform: scale(1.08);
+    }
+
+    .szorp-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.35) 65%, rgba(0,0,0,0.85) 100%);
+      z-index: 1;
+    }
+
+    .szorp-card__body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.4rem 1.5rem 1.5rem;
+      z-index: 2;
+      color: white;
+    }
+
+    .szorp-card__tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: white;
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.65rem;
+      border: 1px solid rgba(255,255,255,0.25);
     }
 
     .szorp-card__name {
       font-family: var(--font-display);
-      font-size: 1.2rem;
-      color: var(--dark);
-      margin-bottom: 0.5rem;
+      font-size: 1.35rem;
+      font-weight: 500;
+      margin-bottom: 0.35rem;
+      color: white;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+
+    .szorp-card--feature .szorp-card__name {
+      font-size: 1.85rem;
     }
 
     .szorp-card__note {
-      font-size: 0.82rem;
-      color: var(--text-muted);
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.55;
+      max-width: 32ch;
     }
 
-    @media (max-width: 600px) {
-      .szorp-showcase { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 960px) {
+      .szorp-showcase {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 240px 240px 240px;
+      }
+      .szorp-card--feature { grid-column: span 2; grid-row: span 1; }
+      .szorp-card--tall    { grid-row: span 1; }
+    }
+
+    @media (max-width: 560px) {
+      .szorp-showcase {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 260px;
+        grid-template-rows: none;
+      }
+      .szorp-card--feature, .szorp-card--tall { grid-column: auto; grid-row: auto; }
+    }
+
+    /* ── Szörp spotlight – teljes kép + szöveg oldalt ─────────────── */
+    .szorp-spotlight {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 3rem;
+      align-items: center;
+      background: linear-gradient(135deg, var(--bg-dark) 0%, #2a2520 100%);
+      border-radius: var(--radius);
+      padding: 3rem;
+      margin-bottom: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .szorp-spotlight::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle, rgba(200,168,78,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .szorp-spotlight::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(165,214,167,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .szorp-spotlight__img {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    .szorp-spotlight__img img {
+      max-width: 100%;
+      max-height: 520px;
+      width: auto;
+      height: auto;
+      display: inline-block;
+      border-radius: 12px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+    }
+    .szorp-spotlight__text {
+      position: relative;
+      z-index: 1;
+      color: white;
+    }
+    .szorp-spotlight__text .pill {
+      display: inline-block;
+      background: var(--gold);
+      color: white;
+      padding: 0.35rem 0.95rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .szorp-spotlight__text h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 2.6vw, 2.3rem);
+      font-weight: 300;
+      color: white;
+      margin: 0 0 1rem 0;
+      line-height: 1.2;
+    }
+    .szorp-spotlight__text h3 em {
+      color: var(--gold-light);
+      font-style: italic;
+    }
+    .szorp-spotlight__text p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .szorp-spotlight__features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.6rem;
+    }
+    .szorp-spotlight__features li {
+      color: rgba(255,255,255,0.85);
+      font-size: 0.9rem;
+      padding-left: 1.6rem;
+      position: relative;
+    }
+    .szorp-spotlight__features li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--gold-light);
+    }
+    @media (max-width: 880px) {
+      .szorp-spotlight {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+        gap: 2rem;
+      }
+      .szorp-spotlight__img img { max-height: 400px; }
+    }
+
+    /* ── Galéria – masonry-szerű grid ─────────────── */
+    .szorp-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 200px;
+      grid-auto-flow: dense;
+      gap: 1rem;
+    }
+    .szorp-gallery__item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .szorp-gallery__item:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-lg);
+    }
+    .szorp-gallery__item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .szorp-gallery__item:hover img { transform: scale(1.06); }
+    .szorp-gallery__item--wide { grid-column: span 2; }
+    .szorp-gallery__item--tall { grid-row: span 2; }
+    @media (max-width: 880px) {
+      .szorp-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 160px;
+        grid-auto-flow: dense;
+      }
+      .szorp-gallery__item--wide { grid-column: span 2; }
+      .szorp-gallery__item--tall { grid-row: span 1; }
+    }
+    @media (max-width: 480px) {
+      .szorp-gallery { grid-template-columns: 1fr; }
+      .szorp-gallery__item--wide { grid-column: auto; }
     }
   </style>
 </head>
@@ -366,7 +588,6 @@
       <!-- RIGHT: Itallap photo (sticky) -->
       <div>
         <div class="itallap-photo reveal reveal-delay-2">
-          <!-- Replace with actual drink menu photo: assets/images/650248402_17918187438295241_307225301371423452_n.jpg -->
           <img src="assets/images/650248402_17918187438295241_307225301371423452_n.jpg"
                alt="Neked Sütöm ITALAINK – itallap fotó" loading="lazy" />
         </div>
@@ -401,27 +622,165 @@
       <p>Desszertek és italok — mert a lángos után is jár valami finomság!</p>
     </div>
 
-    <div style="margin-bottom:3rem;" class="reveal">
-      <img src="assets/images/Neked-Sutom-Szorpok-1.jpg"
-           alt="Neked Sütöm szörpök kollekciója" loading="lazy"
-           style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow-lg);max-height:520px;object-fit:cover;" />
+    <div class="szorp-spotlight reveal">
+      <div class="szorp-spotlight__img">
+        <img src="assets/images/Neked-Sutom-Szorpok-1.jpg"
+             alt="Neked Sütöm házi szörpök kollekciója" loading="lazy" />
+      </div>
+      <div class="szorp-spotlight__text">
+        <span class="pill">Házilag főzve</span>
+        <h3>Minden korty mögött egy <em>szezonnyi gondoskodás</em></h3>
+        <p>
+          Szörpjeinket a saját konyhánkban főzzük, friss, szezonális gyümölcsökből —
+          tartósítószer és mesterséges adalék nélkül. Minden üveg külön történetet mesél.
+        </p>
+        <ul class="szorp-spotlight__features">
+          <li>100% természetes alapanyagok</li>
+          <li>Szezonális gyümölcsök helyi termelőktől</li>
+          <li>Üvegben hazavihető — vidd magaddal a kedvencedet</li>
+        </ul>
+      </div>
     </div>
 
     <div class="szorp-showcase">
-      <div class="szorp-card reveal reveal-delay-1">
-        <span class="szorp-card__icon" aria-hidden="true">🍓</span>
-        <div class="szorp-card__name">Gyümölcsös</div>
-        <p class="szorp-card__note">Friss, szezonális gyümölcsökből</p>
+
+      <!-- Nagy feature kártya -->
+      <div class="szorp-card szorp-card--feature reveal reveal-delay-1">
+        <div class="szorp-card__img">
+          <img src="assets/images/elnevezettek/neked-sütöm-italaink.jpg.jpeg" alt="Neked Sütöm házi italaink válogatás" loading="lazy" />
+        </div>
+        <div class="szorp-card__overlay"></div>
+        <div class="szorp-card__body">
+          <span class="szorp-card__tag">Signature válogatás</span>
+          <div class="szorp-card__name">Házi italaink</div>
+          <p class="szorp-card__note">Friss gyümölcsök, természetes alapanyagok — minden poharat házilag, szeretettel készítünk.</p>
+        </div>
       </div>
-      <div class="szorp-card reveal reveal-delay-2">
-        <span class="szorp-card__icon" aria-hidden="true">🌿</span>
-        <div class="szorp-card__name">Gyógynövényes</div>
-        <p class="szorp-card__note">Természetes aromákkal</p>
+
+      <!-- Magas kártya -->
+      <div class="szorp-card szorp-card--tall reveal reveal-delay-2">
+        <div class="szorp-card__img">
+          <img src="assets/images/elnevezettek/neked-sütöm-italaink2.jpg.jpeg" alt="Frissítő gyümölcsös szörp" loading="lazy" />
+        </div>
+        <div class="szorp-card__overlay"></div>
+        <div class="szorp-card__body">
+          <span class="szorp-card__tag">Szezonális</span>
+          <div class="szorp-card__name">Gyümölcsös</div>
+          <p class="szorp-card__note">Az aktuális szezon legjobbjaiból főzve.</p>
+        </div>
       </div>
+
+      <!-- Kis kártya 1 -->
       <div class="szorp-card reveal reveal-delay-3">
-        <span class="szorp-card__icon" aria-hidden="true">🍋</span>
-        <div class="szorp-card__name">Limonádé alap</div>
-        <p class="szorp-card__note">Frissítő citrus alapú szörp</p>
+        <div class="szorp-card__img">
+          <img src="assets/images/elnevezettek/neked-sütöm-italaink3.jpg.jpeg" alt="Házi limonádé citrusokkal" loading="lazy" />
+        </div>
+        <div class="szorp-card__overlay"></div>
+        <div class="szorp-card__body">
+          <span class="szorp-card__tag">Frissítő</span>
+          <div class="szorp-card__name">Limonádé</div>
+          <p class="szorp-card__note">Citrusos, házi szörppel.</p>
+        </div>
+      </div>
+
+      <!-- Kis kártya 2 -->
+      <div class="szorp-card reveal reveal-delay-3">
+        <div class="szorp-card__img">
+          <img src="assets/images/elnevezettek/neked-sütöm-sör-ital.jpg.jpeg" alt="Sör és különleges italok" loading="lazy" />
+        </div>
+        <div class="szorp-card__overlay"></div>
+        <div class="szorp-card__body">
+          <span class="szorp-card__tag">Klasszikus</span>
+          <div class="szorp-card__name">Sör & üdítők</div>
+          <p class="szorp-card__note">A lángos mellé tökéletes párosítás.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Galéria -->
+    <div class="section__header--center reveal" style="margin-top:5rem;">
+      <span class="section-label">Galéria</span>
+      <h2>Pillanatképek nálunk</h2>
+      <div class="divider divider--center"></div>
+      <p>Hangulat, ízek, vendégeink — egy kis betekintés a Neked Sütöm világába.</p>
+    </div>
+
+    <div class="szorp-gallery reveal">
+      <div class="szorp-gallery__item szorp-gallery__item--tall">
+        <img src="assets/images/Új%20mappa/att.b12lXP_oiGqf03wzAmsu4l79HLIMCWMzXQ5ANesHyDE.jpeg" alt="Neked Sütöm galéria" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item szorp-gallery__item--wide">
+        <img src="assets/images/Új%20mappa/att.5Xm7qnJ4RQ0BMxUM5kPD8kB38f_ZysE7dWC6wncf25M.jpeg" alt="Neked Sütöm hangulat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/Új%20mappa/att.5glTK0lFrwYoR-XX0mmLgTI6AcTYSYjbuVwak3B0ed4.jpeg" alt="Neked Sütöm pillanat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/Új%20mappa/att.B3DiaT6Jn696fRQ9ua7kaezwYthZ4ue7UQg1sNQ6m60.jpeg" alt="Neked Sütöm finomság" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item szorp-gallery__item--wide">
+        <img src="assets/images/Új%20mappa/att.LIJ1CbpOA9dRis7zpxAE8Dr49TVSuBxlSYDYkc9QAf0.jpeg" alt="Neked Sütöm fogás" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/Új%20mappa/att.QTJsQ6PiF_E2U0zAMFw6ls23PiVdKqBzyj0lAHFVMEU.jpeg" alt="Neked Sütöm pillanatkép" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item szorp-gallery__item--tall">
+        <img src="assets/images/Új%20mappa/att.f18uYmY54ymYS8AkT_rnBd6I70ElMx2x1qEqj9t4fRs.jpeg" alt="Neked Sütöm hangulat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/Új%20mappa/att.jSreLcmp1z-we8t2uhgn-HuMZ3AFvFVCJot5WqPxXD8.jpg" alt="Neked Sütöm pillanat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/Új%20mappa/att.w0Lq6NWT5Y5IW8IUG8MAr7sGiW1LhNaZh5rUPn0vtIE.jpeg" alt="Neked Sütöm finomság" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item szorp-gallery__item--wide">
+        <img src="assets/images/Új%20mappa/sajtos%20tejfolos.jpeg" alt="Sajtos tejfölös lángos" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/ételek/galéria4.jpg.jpeg" alt="Neked Sütöm galéria" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item szorp-gallery__item--tall">
+        <img src="assets/images/ételek/galéria5.jpg.jpeg" alt="Neked Sütöm pillanat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/ételek/galéria6.jpg.jpeg" alt="Neked Sütöm hangulat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item szorp-gallery__item--wide">
+        <img src="assets/images/ételek/galéria7.jpg.jpeg" alt="Neked Sütöm kínálat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/ételek/galéria8.jpg.jpeg" alt="Neked Sütöm fogás" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/elnevezettek/galéria.jpg.jpeg" alt="Neked Sütöm galéria" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item szorp-gallery__item--tall">
+        <img src="assets/images/elnevezettek/galéria2.jpg.jpeg" alt="Neked Sütöm hangulat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/elnevezettek/galéria3.jpg.jpeg" alt="Neked Sütöm pillanat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/elnevezettek/galéria-dij.jpg.jpeg" alt="Neked Sütöm díj" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item szorp-gallery__item--wide">
+        <img src="assets/images/ételek/Nutellás%20mascarponés2.jpg.jpeg" alt="Nutellás mascarponés" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/ételek/kovászos-burgonyás.jpg.jpeg" alt="Kovászos burgonyás" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/Új%20mappa/att.64aL4moCZrvhPzD2DfEcu4a785ujAF0sTPAS_GmCnJc%20másolata.jpeg" alt="Neked Sütöm fogás" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/Új%20mappa/att.El0PQl6lJeqSPwXfRLs9ebGnGgZTKIGhSzVB397JY4w%20másolata.jpeg" alt="Neked Sütöm pillanat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item">
+        <img src="assets/images/Új%20mappa/att.Jrkf8hy6lvPLroGkH8_R3TWlK0UoMkCWrpjews0KJPo%20másolata.jpeg" alt="Neked Sütöm hangulat" loading="lazy" />
+      </div>
+      <div class="szorp-gallery__item szorp-gallery__item--wide">
+        <img src="assets/images/nutellas-langos.jpg" alt="Nutellás lángos" loading="lazy" />
       </div>
     </div>
 
@@ -480,3 +839,11 @@
 <script src="js/script.js"></script>
 </body>
 </html>
+
+<!--
+  KÉP FÁJLNÉV HOZZÁRENDELÉS (szörp kártyákhoz):
+
+  att_b12lXP_oiGqf03wzAmsu4l79HL... (gyümölcsös felülnézet)  →  szorp-gyumolcsos.jpg
+  att_5Xm7qnJ4RQ0BMxUM5kPD8kB38f... (limonádé felülnézet)   →  szorp-limonade.jpg
+  att_w0Lq6NWT5Y5IW8IUG... (matcha latte felülnézet)         →  szorp-matcha-latte.jpg
+-->
