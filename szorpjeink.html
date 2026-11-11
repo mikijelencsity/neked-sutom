@@ -116,6 +116,18 @@
 
     .drink-item:last-child { border-bottom: none; }
 
+    .drink-item--has-img {
+      grid-template-columns: 68px 1fr;
+    }
+
+    .drink-item__thumb {
+      width: 68px;
+      height: 68px;
+      border-radius: 14px;
+      object-fit: cover;
+      box-shadow: var(--shadow-sm);
+    }
+
     .drink-item__name {
       font-family: var(--font-display);
       font-size: 1.15rem;
@@ -142,6 +154,14 @@
       text-transform: uppercase;
       vertical-align: middle;
       margin-left: 0.5rem;
+    }
+
+    .drink-item__price {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gold-dark);
+      white-space: nowrap;
     }
 
     /* ── Szörp showcase – aszimmetrikus képes grid ─────────────── */
@@ -490,6 +510,73 @@
 
 
 <!-- ══════════════════════════════════════════════
+     ŐSZI ÚJDONSÁGOK (legfelül, hogy azonnal látszódjon)
+═══════════════════════════════════════════════ -->
+<section class="section section--cream" aria-label="Őszi újdonságaink">
+  <div class="container">
+    <div class="section__header--center reveal">
+      <span class="section-label">🍂 Megérkezett az ősz</span>
+      <h2>Őszi újdonságaink</h2>
+      <div class="divider divider--center"></div>
+      <p>Melengető italok, amelyek egy kicsit a testünket és a lelkünket is átölelik.</p>
+    </div>
+
+    <div class="oszi-showcase">
+
+      <!-- Nagy feature kártya -->
+      <div class="szorp-card szorp-card--feature reveal reveal-delay-1">
+        <div class="szorp-card__img">
+          <img src="assets/images/oszi-ujdonsagok/tonkababos-ube-latte.jpg" alt="Tonkababos ube latte" loading="lazy" />
+        </div>
+        <div class="szorp-card__overlay"></div>
+        <div class="szorp-card__body">
+          <span class="szorp-card__tag">Új</span>
+          <div class="szorp-card__name">Tonkababos ube latte</div>
+        </div>
+      </div>
+
+      <!-- Magas kártya -->
+      <div class="szorp-card szorp-card--tall reveal reveal-delay-2">
+        <div class="szorp-card__img">
+          <img src="assets/images/oszi-ujdonsagok/pisztacias-matcha-latte.jpg" alt="Pisztáciás matcha latte" loading="lazy" />
+        </div>
+        <div class="szorp-card__overlay"></div>
+        <div class="szorp-card__body">
+          <span class="szorp-card__tag">Új</span>
+          <div class="szorp-card__name">Pisztáciás matcha latte</div>
+        </div>
+      </div>
+
+      <!-- Kis kártya 1 -->
+      <div class="szorp-card reveal reveal-delay-3">
+        <div class="szorp-card__img">
+          <img src="assets/images/oszi-ujdonsagok/sutotokos-latte.jpg" alt="Sütőtökös latte" loading="lazy" />
+        </div>
+        <div class="szorp-card__overlay"></div>
+        <div class="szorp-card__body">
+          <span class="szorp-card__tag">Új</span>
+          <div class="szorp-card__name">Sütőtökös latte</div>
+        </div>
+      </div>
+
+      <!-- Kis kártya 2 -->
+      <div class="szorp-card reveal reveal-delay-3">
+        <div class="szorp-card__img">
+          <img src="assets/images/oszi-ujdonsagok/extra-csokis-kakao.jpg" alt="Extra csokis kakaó karamellizált pillecukorral" loading="lazy" />
+        </div>
+        <div class="szorp-card__overlay"></div>
+        <div class="szorp-card__body">
+          <span class="szorp-card__tag">Új</span>
+          <div class="szorp-card__name">Extra csokis kakaó</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════
      MAIN DRINKS CONTENT
 ═══════════════════════════════════════════════ -->
 <section class="section" aria-label="Italaink teljes listája">
@@ -512,7 +599,8 @@
             jegesen is elkészítjük őket.
           </p>
 
-          <div class="drink-item">
+          <div class="drink-item drink-item--has-img">
+            <img class="drink-item__thumb" src="assets/images/oszi-ujdonsagok/tonkababos-ube-latte.jpg" alt="Tonkababos ube latte" loading="lazy" />
             <div>
               <div class="drink-item__name">
                 Tonkababos ube latte
@@ -521,7 +609,8 @@
               <div class="drink-item__desc">Vaníliás, mandulás, enyhén karamelles tonkabab a lágyan édeskés, krémes ube (lila jamgyökér) társaságában</div>
             </div>
           </div>
-          <div class="drink-item">
+          <div class="drink-item drink-item--has-img">
+            <img class="drink-item__thumb" src="assets/images/oszi-ujdonsagok/sutotokos-latte.jpg" alt="Sütőtökös latte" loading="lazy" />
             <div>
               <div class="drink-item__name">
                 Sütőtökös latte
@@ -530,7 +619,8 @@
               <div class="drink-item__desc">Krémes, fűszeres, igazi őszi hangulat egy pohárban</div>
             </div>
           </div>
-          <div class="drink-item">
+          <div class="drink-item drink-item--has-img">
+            <img class="drink-item__thumb" src="assets/images/oszi-ujdonsagok/pisztacias-matcha-latte.jpg" alt="Pisztáciás matcha latte" loading="lazy" />
             <div>
               <div class="drink-item__name">
                 Pisztáciás matcha latte
@@ -539,7 +629,8 @@
               <div class="drink-item__desc">Karakteres, enyhén földes matcha és a krémes pisztácia különleges párosa</div>
             </div>
           </div>
-          <div class="drink-item">
+          <div class="drink-item drink-item--has-img">
+            <img class="drink-item__thumb" src="assets/images/oszi-ujdonsagok/extra-csokis-kakao.jpg" alt="Extra csokis kakaó karamellizált pillecukorral" loading="lazy" />
             <div>
               <div class="drink-item__name">
                 Extra csokis kakaó, karamellizált pillecukorral
@@ -707,76 +798,6 @@
           <li>Üvegben hazavihető — vidd magaddal a kedvencedet</li>
         </ul>
       </div>
-    </div>
-
-    <div class="section__header--center reveal">
-      <span class="section-label">🍂 Megérkezett az ősz</span>
-      <h2>Őszi újdonságaink</h2>
-      <div class="divider divider--center"></div>
-      <p>Melengető italok, amelyek egy kicsit a testünket és a lelkünket is átölelik.</p>
-    </div>
-
-    <div class="oszi-showcase" style="margin-bottom:5rem;">
-
-      <!-- Nagy feature kártya -->
-      <div class="szorp-card szorp-card--feature reveal reveal-delay-1">
-        <div class="szorp-card__img">
-          <img src="assets/images/oszi-ujdonsagok/tonkababos-ube-latte.jpg" alt="Tonkababos ube latte" loading="lazy" />
-        </div>
-        <div class="szorp-card__overlay"></div>
-        <div class="szorp-card__body">
-          <span class="szorp-card__tag">Új</span>
-          <div class="szorp-card__name">Tonkababos ube latte</div>
-          <p class="szorp-card__note">Vaníliás-mandulás-karamelles tonkabab a lágyan édeskés, gyönyörű lila ube-val.</p>
-        </div>
-      </div>
-
-      <!-- Magas kártya -->
-      <div class="szorp-card szorp-card--tall reveal reveal-delay-2">
-        <div class="szorp-card__img">
-          <img src="assets/images/oszi-ujdonsagok/pisztacias-matcha-latte.jpg" alt="Pisztáciás matcha latte" loading="lazy" />
-        </div>
-        <div class="szorp-card__overlay"></div>
-        <div class="szorp-card__body">
-          <span class="szorp-card__tag">Új</span>
-          <div class="szorp-card__name">Pisztáciás matcha latte</div>
-          <p class="szorp-card__note">Karakteres matcha és krémes pisztácia különleges párosa.</p>
-        </div>
-      </div>
-
-      <!-- Kis kártya 1 -->
-      <div class="szorp-card reveal reveal-delay-3">
-        <div class="szorp-card__img">
-          <img src="assets/images/oszi-ujdonsagok/sutotokos-latte.jpg" alt="Sütőtökös latte" loading="lazy" />
-        </div>
-        <div class="szorp-card__overlay"></div>
-        <div class="szorp-card__body">
-          <span class="szorp-card__tag">Új</span>
-          <div class="szorp-card__name">Sütőtökös latte</div>
-          <p class="szorp-card__note">Krémes, fűszeres, igazi őszi hangulat egy pohárban.</p>
-        </div>
-      </div>
-
-      <!-- Kis kártya 2 -->
-      <div class="szorp-card reveal reveal-delay-3">
-        <div class="szorp-card__img">
-          <img src="assets/images/oszi-ujdonsagok/extra-csokis-kakao.jpg" alt="Extra csokis kakaó karamellizált pillecukorral" loading="lazy" />
-        </div>
-        <div class="szorp-card__overlay"></div>
-        <div class="szorp-card__body">
-          <span class="szorp-card__tag">Új</span>
-          <div class="szorp-card__name">Extra csokis kakaó</div>
-          <p class="szorp-card__note">Csokis, édes és egy kicsit túlzásba is esik — karamellizált pillecukorral.</p>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="section__header--center reveal">
-      <span class="section-label">Törzsgárda kedvencei</span>
-      <h2>Állandó kínálatunk</h2>
-      <div class="divider divider--center"></div>
-      <p>Desszertek és italok — mert a lángos után is jár valami finomság!</p>
     </div>
 
     <div class="szorp-showcase">

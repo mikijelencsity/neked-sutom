@@ -11,83 +11,116 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <style>
-    /* ── Őszi újdonságok – kompakt kártyasor a főoldalon ─────────────── */
-    .oszi-home-section { padding: 4rem 0; }
-
-    .oszi-home-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.25rem;
-    }
-
-    .oszi-home-card {
+    /* ── Őszi újdonságok – poszterfal a főoldalon ─────────────── */
+    .oszi-home-section {
+      padding: 4.5rem 0;
+      background: var(--bg-cream);
       position: relative;
-      display: block;
-      aspect-ratio: 3 / 4;
-      border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: transform var(--transition), box-shadow var(--transition);
     }
 
-    .oszi-home-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .oszi-home-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
-    }
-
-    .oszi-home-card:hover img { transform: scale(1.06); }
-
-    .oszi-home-card::after {
+    .oszi-home-section::before {
       content: '';
       position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.75) 100%);
+      top: -120px; left: -100px;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(200,168,78,0.18) 0%, transparent 70%);
+      border-radius: 50%;
       pointer-events: none;
     }
 
-    .oszi-home-card__tag {
+    .oszi-home-section::after {
+      content: '';
       position: absolute;
-      top: 0.75rem;
-      left: 0.75rem;
-      background: var(--gold);
-      color: white;
-      padding: 0.2rem 0.65rem;
-      border-radius: var(--radius-pill);
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      z-index: 1;
+      bottom: -140px; right: -120px;
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(200,168,78,0.14) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
     }
 
-    .oszi-home-card__name {
-      position: absolute;
-      bottom: 0.9rem;
-      left: 0.9rem;
-      right: 0.9rem;
-      color: white;
-      font-family: var(--font-display);
-      font-size: 1rem;
-      line-height: 1.3;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+    .oszi-home-section .section__header--center { position: relative; z-index: 1; }
+    .oszi-home-section .divider--center { background: var(--gold-gradient); }
+
+    .oszi-home-flyers {
+      position: relative;
       z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 1rem 0 0;
+    }
+
+    .oszi-home-flyer {
+      display: block;
+      position: relative;
+      border-radius: calc(var(--radius) - 6px);
+      padding: 7px;
+      background: var(--gold-gradient);
+      box-shadow: 0 16px 36px rgba(26,23,20,0.22);
+      transform: rotate(-2.5deg);
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease;
+    }
+
+    .oszi-home-flyers a.oszi-home-flyer:nth-child(2) {
+      transform: rotate(2.5deg);
+    }
+
+    .oszi-home-flyer:hover {
+      transform: rotate(0deg) translateY(-8px) scale(1.03);
+      box-shadow: 0 22px 46px rgba(200,168,78,0.3), 0 16px 36px rgba(26,23,20,0.25);
+      z-index: 2;
+    }
+
+    .oszi-home-flyer__inner {
+      position: relative;
+      border-radius: calc(var(--radius) - 10px);
+      overflow: hidden;
+    }
+
+    .oszi-home-flyer img {
+      width: 100%;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .oszi-home-flyer:hover img { transform: scale(1.04); }
+
+    .oszi-home-flyer__ribbon {
+      position: absolute;
+      top: 0.85rem;
+      right: -2.1rem;
+      background: var(--dark);
+      color: var(--gold-light);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 2.3rem;
+      transform: rotate(45deg);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 2;
+    }
+
+    .oszi-home-cta {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      margin-top: 1.75rem;
     }
 
     @media (max-width: 760px) {
-      .oszi-home-grid { grid-template-columns: repeat(2, 1fr); }
+      .oszi-home-flyers { grid-template-columns: 1fr; max-width: 340px; gap: 1.75rem; }
+      .oszi-home-flyer,
+      .oszi-home-flyers a.oszi-home-flyer:nth-child(2) { transform: rotate(-1.5deg); }
     }
   </style>
 </head>
 <body>
 
-<nav class="nav" role="navigation" aria-label="Fő navigáció">
+<nav class="nav scrolled" role="navigation" aria-label="Fő navigáció">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo" aria-label="Neked Sütöm főoldal">
       <img src="assets/images/logo.png" alt="Neked Sütöm logó" class="nav__logo-img" />
@@ -118,8 +151,8 @@
 <div class="ujdonsag" style="margin-top:var(--nav-h)">
   <div class="container ujdonsag__inner">
     <span class="ujdonsag__badge">Újdonság</span>
-    <p class="ujdonsag__text">Megérkeztek az ősz első kortyai — új: <strong>tonkababos ube latte</strong>, <strong>sütőtökös latte</strong>, <strong>pisztáciás matcha latte</strong> és <strong>extra csokis kakaó</strong>.</p>
-    <a href="szorpjeink.html" class="btn btn--outline-white" style="font-size:0.7rem;padding:0.35rem 1rem;">Megnézem →</a>
+    <p class="ujdonsag__text">Újra van heti menü! Ezen a héten: <strong>paradicsomos húsgombóc</strong> és <strong>chorizós burgonyaleves</strong>.</p>
+    <a href="#heti-menu" class="btn btn--outline-white" style="font-size:0.7rem;padding:0.35rem 1rem;">Megnézem →</a>
   </div>
 </div>
 
@@ -213,6 +246,53 @@
 </div>
 
 
+<!-- ── HETI MENÜ SZEKCIÓ — hetente a szöveget és a képeket (assets/images/heti-menu/) kell cserélni, a popuppal együtt ── -->
+<section class="section weekly-section" id="heti-menu" aria-label="Heti menüajánlat">
+  <div class="container">
+    <div class="section__header--center reveal">
+      <span class="section-label">Ezen a héten</span>
+      <h2>Heti menüajánlatunk</h2>
+      <div class="divider divider--center"></div>
+      <p>Egy leves és egy főétel — frissen, a készlet erejéig.</p>
+    </div>
+
+    <div class="weekly-grid reveal">
+      <article class="weekly-card weekly-card--main">
+        <img class="weekly-card__img" src="assets/images/heti-menu/fogas.jpg" alt="Paradicsomos húsgombóc főtt burgonyával és lángoscsíkokkal" loading="lazy" />
+        <div class="weekly-card__body">
+          <span class="weekly-card__kind">Főétel</span>
+          <h3 class="weekly-card__name">Paradicsomos húsgombóc főtt burgonyával és fokhagymás, kovászos lángoscsíkokkal</h3>
+          <p class="weekly-card__desc">Sertéshúsgolyó, édes paradicsomragu, főtt burgonya, kovászos lángoscsíkokkal.</p>
+          <span class="weekly-card__tag">Tejfehérjementes étel</span>
+          <div class="weekly-card__price-wrap"><span class="weekly-card__price">1 990 Ft <small>+ 150 Ft elvitel esetén</small></span></div>
+        </div>
+      </article>
+
+      <article class="weekly-card weekly-card--soup">
+        <img class="weekly-card__img" src="assets/images/heti-menu/leves.jpg" alt="Chorizós burgonyaleves lángoscsíkokkal" loading="lazy" />
+        <div class="weekly-card__body">
+          <span class="weekly-card__kind">Leves</span>
+          <h3 class="weekly-card__name">Chorizós burgonyaleves</h3>
+          <p class="weekly-card__desc">Hagyma, burgonya, chorizo, laktózmentes tejföl, fokhagymás, kovászos lángoscsíkokkal.</p>
+          <span class="weekly-card__tag">Laktózmentes étel</span>
+          <div class="weekly-card__price-wrap"><span class="weekly-card__price">1 490 Ft <small>+ 150 Ft elvitel esetén</small></span></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="weekly-order reveal">
+      <p>Ételeinket elő tudod rendelni telefonon, vagy kérheted a Wolton keresztül is!</p>
+      <div class="weekly-order__actions">
+        <a href="tel:+36202636179" class="delivery-btn weekly-popup__call">📞 06 20 263 6179</a>
+        <a href="https://wolt.com/hu/hun/baja/restaurant/neked-sutom?srsltid=AfmBOooofSF4jPXiXXF6goq9MMTRCKu0kcvcJ-XZW09k8vJ6fAfBWiHD" target="_blank" class="delivery-btn delivery-btn--wolt">Rendelés Wolton</a>
+      </div>
+      <p class="weekly-order__note">A készlet erejéig! 💛</p>
+      <p>📍 Neked Sütöm – Baja, 6500 Baja, Dr. Alföldi József tér 1.</p>
+    </div>
+  </div>
+</section>
+
+
 <!-- ── ŐSZI ÚJDONSÁGOK ────────────────────────────── -->
 <section class="section oszi-home-section" aria-label="Őszi újdonságaink">
   <div class="container">
@@ -223,31 +303,23 @@
       <p>Melengető italok, amelyek egy kicsit a testünket és a lelkünket is átölelik.</p>
     </div>
 
-    <div class="oszi-home-grid reveal">
-      <a href="szorpjeink.html" class="oszi-home-card">
-        <img src="assets/images/oszi-ujdonsagok/tonkababos-ube-latte.jpg" alt="Tonkababos ube latte" loading="lazy" />
-        <span class="oszi-home-card__tag">Új</span>
-        <span class="oszi-home-card__name">Tonkababos ube latte</span>
+    <div class="oszi-home-flyers reveal">
+      <a href="szorpjeink.html" class="oszi-home-flyer">
+        <span class="oszi-home-flyer__ribbon">Új</span>
+        <span class="oszi-home-flyer__inner">
+          <img src="assets/images/oszi-ujdonsagok/flyer-pisztacias-matcha-sutotokos.jpg" alt="Fall Drinks Special – Pisztáciás matcha 1390 Ft, Sütőtökös latte 1190 Ft" loading="lazy" />
+        </span>
       </a>
-      <a href="szorpjeink.html" class="oszi-home-card">
-        <img src="assets/images/oszi-ujdonsagok/sutotokos-latte.jpg" alt="Sütőtökös latte" loading="lazy" />
-        <span class="oszi-home-card__tag">Új</span>
-        <span class="oszi-home-card__name">Sütőtökös latte</span>
-      </a>
-      <a href="szorpjeink.html" class="oszi-home-card">
-        <img src="assets/images/oszi-ujdonsagok/pisztacias-matcha-latte.jpg" alt="Pisztáciás matcha latte" loading="lazy" />
-        <span class="oszi-home-card__tag">Új</span>
-        <span class="oszi-home-card__name">Pisztáciás matcha latte</span>
-      </a>
-      <a href="szorpjeink.html" class="oszi-home-card">
-        <img src="assets/images/oszi-ujdonsagok/extra-csokis-kakao.jpg" alt="Extra csokis kakaó karamellizált pillecukorral" loading="lazy" />
-        <span class="oszi-home-card__tag">Új</span>
-        <span class="oszi-home-card__name">Extra csokis kakaó</span>
+      <a href="szorpjeink.html" class="oszi-home-flyer">
+        <span class="oszi-home-flyer__ribbon">Új</span>
+        <span class="oszi-home-flyer__inner">
+          <img src="assets/images/oszi-ujdonsagok/flyer-csokis-kakao-tonkababos.jpg" alt="Fall Drinks Special – Extra csokis pillecukros kakaó 900 Ft, Tonkababos ube latte 1390 Ft" loading="lazy" />
+        </span>
       </a>
     </div>
 
-    <div style="text-align:center;margin-top:2.5rem;">
-      <a href="szorpjeink.html" class="btn btn--primary">Összes italunk →</a>
+    <div class="oszi-home-cta reveal">
+      <a href="szorpjeink.html" class="btn btn--primary">Az összes őszi ital →</a>
     </div>
   </div>
 </section>
@@ -534,6 +606,76 @@
     <div class="footer__bottom"><p class="footer__copy"><span class="footer__green-dot"></span>Minden jog fenntartva © 2026 Neked Sütöm</p><p class="footer__copy">Baja lángosozója — Frissen, minden nap.</p></div>
   </div>
 </footer>
+
+<!-- HETI MENÜ POPUP — hetente csak a szöveget és a két képet (assets/images/heti-menu/) kell cserélni -->
+<div class="weekly-popup" id="weeklyPopup" role="dialog" aria-modal="true" aria-labelledby="weeklyPopupTitle" aria-hidden="true">
+  <div class="weekly-popup__card">
+    <button class="weekly-popup__close" type="button" aria-label="Bezárás">&times;</button>
+    <span class="weekly-popup__label">Ezen a héten</span>
+    <h2 class="weekly-popup__title" id="weeklyPopupTitle">Heti menüajánlatunk</h2>
+
+    <div class="weekly-popup__dish weekly-popup__dish--main">
+      <img class="weekly-popup__img" src="assets/images/heti-menu/fogas.jpg" alt="Paradicsomos húsgombóc főtt burgonyával és lángoscsíkokkal" loading="lazy" />
+      <div>
+        <span class="weekly-popup__kind">Főétel</span>
+        <h3 class="weekly-popup__name">Paradicsomos húsgombóc főtt burgonyával és fokhagymás, kovászos lángoscsíkokkal</h3>
+        <p class="weekly-popup__desc">Sertéshúsgolyó, édes paradicsomragu, főtt burgonya, kovászos lángoscsíkokkal.</p>
+        <p class="weekly-popup__allergy">(Tejfehérjementes étel)</p>
+        <p class="weekly-popup__price">1 990 Ft <small>+ 150 Ft elvitel esetén</small></p>
+      </div>
+    </div>
+
+    <div class="weekly-popup__dish weekly-popup__dish--soup">
+      <img class="weekly-popup__img" src="assets/images/heti-menu/leves.jpg" alt="Chorizós burgonyaleves lángoscsíkokkal" loading="lazy" />
+      <div>
+        <span class="weekly-popup__kind">Leves</span>
+        <h3 class="weekly-popup__name">Chorizós burgonyaleves</h3>
+        <p class="weekly-popup__desc">Hagyma, burgonya, chorizo, laktózmentes tejföl, fokhagymás, kovászos lángoscsíkokkal.</p>
+        <p class="weekly-popup__allergy">(Laktózmentes étel)</p>
+        <p class="weekly-popup__price">1 490 Ft <small>+ 150 Ft elvitel esetén</small></p>
+      </div>
+    </div>
+
+    <div class="weekly-popup__foot">
+      <p>Ételeinket elő tudod rendelni telefonon, vagy kérheted a Wolton keresztül is!</p>
+      <div class="weekly-popup__actions">
+        <a href="tel:+36202636179" class="delivery-btn weekly-popup__call">📞 06 20 263 6179</a>
+        <a href="https://wolt.com/hu/hun/baja/restaurant/neked-sutom?srsltid=AfmBOooofSF4jPXiXXF6goq9MMTRCKu0kcvcJ-XZW09k8vJ6fAfBWiHD" target="_blank" class="delivery-btn delivery-btn--wolt">Rendelés Wolton</a>
+      </div>
+      <p><strong>A készlet erejéig! 💛</strong></p>
+      <p>📍 Neked Sütöm – Baja, 6500 Baja, Dr. Alföldi József tér 1.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var popup = document.getElementById('weeklyPopup');
+  if (!popup) return;
+  var KEY = 'weeklyMenuSeen';
+  function seen() { try { return sessionStorage.getItem(KEY) === '1'; } catch (e) { return false; } }
+  function mark() { try { sessionStorage.setItem(KEY, '1'); } catch (e) {} }
+  function open() {
+    popup.classList.add('is-open');
+    popup.setAttribute('aria-hidden', 'false');
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    popup.classList.remove('is-open');
+    popup.setAttribute('aria-hidden', 'true');
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+    mark();
+  }
+  popup.addEventListener('wheel', function (e) { e.preventDefault(); }, { passive: false });
+  popup.addEventListener('touchmove', function (e) { e.preventDefault(); }, { passive: false });
+  popup.querySelector('.weekly-popup__close').addEventListener('click', close);
+  popup.addEventListener('click', function (e) { if (e.target === popup) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && popup.classList.contains('is-open')) close(); });
+  if (!seen()) setTimeout(open, 1500);
+})();
+</script>
 
 <script src="js/script.js"></script>
 </body>
