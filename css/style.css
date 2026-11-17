@@ -2918,7 +2918,7 @@ p {
 .weekly-popup__img {
   width: 150px;
   height: 112px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: var(--radius-sm);
 }
 .weekly-popup__kind {
@@ -2985,7 +2985,7 @@ p {
   display: flex;
   flex-direction: column;
 }
-.weekly-card__img { width: 100%; height: 240px; object-fit: cover; display: block; }
+.weekly-card__img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; display: block; }
 .weekly-card__body { padding: 1.4rem 1.5rem 1.6rem; display: flex; flex-direction: column; flex: 1; }
 .weekly-card__kind {
   font-size: 0.72rem;
@@ -3013,7 +3013,7 @@ p {
 
 @media (max-width: 700px) {
   .weekly-grid { grid-template-columns: 1fr; max-width: 460px; }
-  .weekly-card__img { height: 210px; }
+  .weekly-card__img { height: auto; }
   .weekly-order__actions .delivery-btn { width: 100%; justify-content: center; }
 }
 
@@ -3137,8 +3137,8 @@ p {
 /* ── Heti menü popup: kicsit nagyobb méret ───────────────── */
 .weekly-popup__card { max-width: 660px; padding: 2rem 1.9rem 1.7rem; }
 .weekly-popup__title { font-size: 2rem; margin-bottom: 1.2rem; }
-.weekly-popup__dish { grid-template-columns: 190px 1fr; gap: 1.25rem; padding: 0.9rem 0; }
-.weekly-popup__img { width: 190px; height: 128px; }
+.weekly-popup__dish { grid-template-columns: 171px 1fr; gap: 1.25rem; padding: 0.9rem 0; }
+.weekly-popup__img { width: 171px; height: 128px; }
 .weekly-popup__kind { font-size: 0.74rem; }
 .weekly-popup__name { font-size: 1.25rem; }
 .weekly-popup__allergy { font-size: 0.85rem; }
@@ -3189,4 +3189,28 @@ p {
   .weekly-popup__dish { grid-template-columns: 60px 1fr; }
   .weekly-popup__img { width: 60px; height: 60px; }
   .weekly-popup__title { font-size: 1.2rem; margin-bottom: 0.3rem; }
+}
+
+/* ── Heti menü popup: a jegyzet csak telefonon látszik ── */
+.weekly-popup__note { display: none; }
+
+/* ── Heti menü popup: telefonon nagy, egymás alatti kártyák, görgethető ── */
+@media (max-width: 520px) {
+  .weekly-popup { touch-action: auto; align-items: center; padding: 0.5rem; }
+  .weekly-popup__card { display: block; max-height: calc(100vh - 1rem); max-height: calc(100dvh - 1rem); overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 1.1rem 1rem 1.2rem; }
+  .weekly-popup__card::-webkit-scrollbar { display: none; }
+  .weekly-popup__close { position: sticky; float: right; top: 0; right: 0; margin: -0.4rem -0.4rem 0 0; z-index: 3; width: 38px; height: 38px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18); }
+  .weekly-popup__label { font-size: 0.68rem; margin-top: 0.2rem; }
+  .weekly-popup__title { font-size: 1.6rem; margin-bottom: 1rem; padding: 0 1.6rem; }
+  .weekly-popup__dish { display: block; padding: 0 0 1.4rem; margin: 0 0 1.2rem; border-top: 0; border-bottom: 1px solid var(--border); }
+  .weekly-popup__dish:nth-of-type(2) { border-bottom: 0; margin-bottom: 0; padding-bottom: 0.2rem; }
+  .weekly-popup__img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 16px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16); margin-bottom: 0.95rem; }
+  .weekly-popup__dish > div { display: block; }
+  .weekly-popup__kind { font-size: 0.7rem; padding: 0.2rem 0.8rem; }
+  .weekly-popup__name { font-size: 1.35rem; line-height: 1.22; margin: 0.55rem 0 0.35rem; }
+  .weekly-popup__desc { display: none; }
+  .weekly-popup__allergy { display: block; font-size: 0.88rem; margin: 0 0 0.7rem; }
+  .weekly-popup__price { display: inline-block; margin: 0; padding: 0.4rem 1.1rem; font-size: 1.15rem; border-radius: var(--radius-pill); }
+  .weekly-popup__price small { display: inline; font-size: 0.78rem; }
+  .weekly-popup__note { display: none; }
 }
